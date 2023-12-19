@@ -113,7 +113,7 @@ const loginAction = () => {
                     window.location.href = "/home";
                 },
                 error: function () {
-                    console.log("alfa")
+                     window.location.href = "/500";
                 }
             })
         })
@@ -131,7 +131,7 @@ const logoutAction = () => {
                     window.location.reload();
                 },
                 error: function () {
-                    console.log("error")
+                     window.location.href = "/500"
                 }
             })
         })

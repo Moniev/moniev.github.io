@@ -139,12 +139,16 @@ const logoutAction = () => {
 
 const makeOrderAction = () => {};
 
+/*CLIENT IS NOT ABLE TO ABORT CONFIRMED ORDERS*/
 const abortOrderAction = () => {};
 
+/*ALL COMPLETE AND CONFIRM ACTIONS NEEDS ADDITIONAL ADMIN TOKEN*/
 const confirmOrderAction = () => {};
 
+/*ALL COMPLETE AND CONFIRM ACTIONS NEEDS ADDITIONAL ADMIN TOKEN*/
 const deliverOrderAction = () => {};
 
+/*ALL COMPLETE AND CONFIRM ACTIONS NEEDS ADDITIONAL ADMIN TOKEN*/
 const completeOrderAction = () => {};
 
 const makeReservationAction() => {
@@ -168,10 +172,11 @@ const makeReservationAction() => {
     })
 };
 
+/*CLIENT IS NOT ABLE TO ABORT CONFIRMED RESERVATIONS, ADMIN IS ABLE TO ABORT CONFIRMED RESERVATIONS*/
 const abortReservationAction = () => {
     $(document).ready(function () {
-        $().click(function() {
-            const reservation_id = document.getElementById("reservation__id").value;
+        $("abort__reservation").click(function() {
+            const reservation_id = $(this).attr("id");
              $.ajax({
                 type: "POST",
                 url: "/abort_reservation/" + reservation_id + "/", /* REMEBER TO FINISH REST OF LINE*/
@@ -187,10 +192,11 @@ const abortReservationAction = () => {
     }
 };
 
+/*ALL COMPLETE AND CONFIRM ACTIONS NEEDS ADDITIONAL ADMIN TOKEN*/
 const confirmReservationAction = () => {
     $(document).ready(function () {
-        $().click(function() {
-            const reservation_id = document.getElementById("reservation__id").value;
+        $("confirm__reservation").click(function() {
+            const reservation_id =  $(this).attr("id");
              $.ajax({
                 type: "POST",
                 url: "/confirm_reservation/" + reservation_id + "/", /*REMEBER TO FINISH REST OF LINE*/
@@ -205,6 +211,7 @@ const confirmReservationAction = () => {
     })
 };
 
+/*ALL COMPLETE AND CONFIRM ACTIONS NEEDS ADDITIONAL ADMIN TOKEN*/
 const completeReservationAction = () => {};
     
 const copyToClipBoard = () => {

@@ -58,7 +58,6 @@ const navigateReserve = () => {
     })
 }
 
-
 /*
 const navigateLogIn = () => {
     $(document).ready(function () {
@@ -80,11 +79,11 @@ const navigateSignUp = () => {
 const signUpAction = () => {
     $(document).ready(function () {
         $(".sign_up__button").click(function () {
-            var nickname = document.getElementById("register__nickname").value;
-            var name = document.getElementById("register__name").value;
-            var lastname = document.getElementById("register__last_name").value;
-            var email = document.getElementById("register__email").value;
-            var password = document.getElementById("register__password").value;
+            const nickname = document.getElementById("register__nickname").value;
+            const name = document.getElementById("register__name").value;
+            const lastname = document.getElementById("register__last_name").value;
+            const email = document.getElementById("register__email").value;
+            const password = document.getElementById("register__password").value;
             $.ajax({
                 type: "POST",
                 url: "/register_user/" + nickname + "/" + name + "/" + lastname + "/" + email + "/" + password + "/",
@@ -138,14 +137,25 @@ const logoutAction = () => {
     })
 };
 
+const makeOrderAction = () => {};
+
+const abortOrderAction = () => {};
+
+const confirmOrderAction = () => {};
+
+const deliverOrderAction = () => {};
+
+const completeOrderAction = () => {};
+
 const makeReservationAction() => {
     $(document).ready(function () {
         $("submit__reservation").click(function() {
-            var item_id = document.getElementById("item__id").value;
+            const start_date = document.getElementById("start__date").value;
+            const end_date = document.getElementById("end__date").value;
             /*YOU ARE NOT ABLE TO MAKE RESERVATION WHILE USER SESSION ID IS NOT IN SERVERSIDE HASHMAP, USER IS BEEING RECOGNIZED ADDITIONALLY VIA REQUEST CONTEXT(COOKIE)*/
             $.ajax({
                 type: "POST",
-                url: "make_reservation", /* REMEBER TO FINISH REST OF LINE*/
+                url: "/make_reservation/" + start_date + "/" + end_date, /*REMEBER TO FINISH REST OF LINE*/
                 contentType: "application/json",
                 success: function (response) {
                     window.location.reload();
@@ -158,6 +168,45 @@ const makeReservationAction() => {
     })
 };
 
+const abortReservationAction = () => {
+    $(document).ready(function () {
+        $().click(function() {
+            const reservation_id = document.getElementById("reservation__id").value;
+             $.ajax({
+                type: "POST",
+                url: "/abort_reservation/" + reservation_id + "/", /* REMEBER TO FINISH REST OF LINE*/
+                contentType: "application/json",
+                success: function (response) {
+                    window.location.reload();
+                },
+                error: function () {
+                    window.location.href = "/500";
+                }
+            })
+        })
+    }
+};
+
+const confirmReservationAction = () => {
+    $(document).ready(function () {
+        $().click(function() {
+            const reservation_id = document.getElementById("reservation__id").value;
+             $.ajax({
+                type: "POST",
+                url: "/confirm_reservation/" +, /*REMEBER TO FINISH REST OF LINE*/
+                contentType: "application/json",
+                success: function (response) {
+                    window.location.reload();
+                },
+                error: function () {
+                    window.location.href = "/500";
+                }
+        })
+    })
+};
+
+const completeReservationAction = () => {};
+    
 const copyToClipBoard = () => {
     $(document).ready(function () {
         $(".phone").click(function () {

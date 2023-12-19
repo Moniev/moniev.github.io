@@ -193,7 +193,7 @@ const confirmReservationAction = () => {
             const reservation_id = document.getElementById("reservation__id").value;
              $.ajax({
                 type: "POST",
-                url: "/confirm_reservation/" +, /*REMEBER TO FINISH REST OF LINE*/
+                url: "/confirm_reservation/" + reservation_id + "/", /*REMEBER TO FINISH REST OF LINE*/
                 contentType: "application/json",
                 success: function (response) {
                     window.location.reload();

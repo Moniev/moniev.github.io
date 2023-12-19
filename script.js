@@ -105,7 +105,6 @@ const loginAction = () => {
         $(".log_in__button").click(function () {
             const email = document.getElementById("login__email").value;
             const password = document.getElementById("login__password").value;
-            console.log("STEC")
             $.ajax({
                 type: "POST",
                 url: "/validate_login/" + email + "/" + password + "/",
@@ -124,8 +123,6 @@ const loginAction = () => {
 const logoutAction = () => {
     $(document).ready(function () {
         $(".log_out__button").click(function () {
-            const session_id = getCookie("resto_session");
-            console.log(session_id)
             $.ajax({
                 type: "POST",
                 url: "/logout_user/",

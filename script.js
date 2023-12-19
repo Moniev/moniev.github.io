@@ -131,7 +131,27 @@ const logoutAction = () => {
                     window.location.reload();
                 },
                 error: function () {
-                     window.location.href = "/500"
+                     window.location.href = "/500";
+                }
+            })
+        })
+    })
+};
+
+const makeReservationAction() => {
+    $(document).ready(function () {
+        $("submit__reservation").click(function() {
+            var item_id = document.getElementById("item__id").value;
+            /*YOU ARE NOT ABLE TO MAKE RESERVATION WHILE USER SESSION ID IS NOT IN SERVERSIDE HASHMAP, USER IS BEEING RECOGNIZED ADDITIONALLY VIA REQUEST CONTEXT(COOKIE)*/
+            $.ajax({
+                type: "POST",
+                url: "make_reservation", /* REMEBER TO FINISH REST OF LINE*/
+                contentType: "application/json",
+                success: function (response) {
+                    window.location.reload();
+                },
+                error: function () {
+                    window.location.href = "/500";
                 }
             })
         })

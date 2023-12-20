@@ -152,7 +152,7 @@ const deliverOrderAction = () => {};
 /*ALL COMPLETE AND CONFIRM ACTIONS NEEDS ADDITIONAL ADMIN TOKEN*/
 const completeOrderAction = () => {};
 
-const makeReservationAction() => {
+const makeReservationAction = () => {
     $(document).ready(function () {
         $("submit__reservation").click(function() {
             const start_date = document.getElementById("start__date").value;

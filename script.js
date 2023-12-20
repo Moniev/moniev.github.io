@@ -169,7 +169,7 @@ const makeReservationAction = () => {
                     window.location.href = "/500";
                 }
             })
-        }
+        })
     }
 };
 
@@ -190,7 +190,7 @@ const abortReservationAction = () => {
                 }
             })
         }
-    }
+    })
 };
 
 /*ALL COMPLETE AND CONFIRM ACTIONS NEEDS ADDITIONAL ADMIN TOKEN*/

@@ -170,7 +170,7 @@ const makeReservationAction = () => {
                 }
             })
         })
-    }
+    })
 };
 
 /*CLIENT IS NOT ABLE TO ABORT CONFIRMED RESERVATIONS, ADMIN IS ABLE TO ABORT CONFIRMED RESERVATIONS*/
@@ -189,7 +189,7 @@ const abortReservationAction = () => {
                     window.location.href = "/500";
                 }
             })
-        }
+        })
     })
 };
 
@@ -208,6 +208,7 @@ const confirmReservationAction = () => {
                 error: function () {
                     window.location.href = "/500";
                 }
+            })
         })
     })
 };

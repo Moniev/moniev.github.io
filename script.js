@@ -122,6 +122,7 @@ const loginAction = () => {
 const logoutAction = () => {
     $(document).ready(function () {
         $(".log_out__button").click(function () {
+            console.log("loggin out");
             $.ajax({
                 type: "POST",
                 url: "/logout_user/",
